@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Evernote_Clone.View"
+        xmlns:lvm="clr-namespace:Evernote_Clone.ViewModel"
         mc:Ignorable="d"
         Title="NoteWindow" Height="450" Width="800">
-    <Grid>
-        
+
+    <Window.Resources>
+        <lvm:LoginVM x:Key="lvm"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource lvm}">
+        <TextBlock Text="welcome"
+                   FontSize="20"
+                   HorizontalAlignment="Center"/>
     </Grid>
 </Window>

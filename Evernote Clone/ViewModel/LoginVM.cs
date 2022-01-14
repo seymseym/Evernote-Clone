@@ -1,34 +1,63 @@
-﻿using Evernote_Clone.Model;
-using Evernote_Clone.ViewModel.Commands;
+﻿using DevExpress.Mvvm;
+using Evernote_Clone.Model;
+using Evernote_Clone.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Evernote_Clone.ViewModel
 {
-    public class LoginVM
+    public class LoginVM : ViewModelBase
     {
-        private User user;
 
-        public User User
+        public string User
         {
-            get { return user; }
-            set { user = value; }
+            get
+            {
+                return GetProperty(() => User);
+            }
+
+            set
+            {
+                SetProperty(() => User, value);
+            }
         }
 
-        /*After creating RegisterCommand class 
-         *               RegisterCommand(LoginVM vm)
-         */
-        public RegisterCommand RegisterCommand { get; set; }
-        public LoginCommand LoginCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
+        public ICommand NewNotebookCommand { get; set; }
+        public ICommand NewNoteCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
+
         public LoginVM()
         {
-            RegisterCommand = new RegisterCommand(this); //Bcs the constructor of RegisterCommand class
-                                                         //requires a LoginVM instance
+            LoginCommand = new DelegateCommand(Login);
+            NewNotebookCommand = new DelegateCommand(NewNoteook);
+            NewNoteCommand = new DelegateCommand(NewNote);
+            RegisterCommand = new DelegateCommand(Register);
+        }
 
-            LoginCommand = new LoginCommand(this);
+        private void Register()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void NewNote()
+        {
+            
+        }
+
+        private void NewNoteook()
+        {
+            
+        }
+
+        private void Login()
+        {
+            NoteWindow NW = new NoteWindow();
+            NW.Show();
         }
 
     }

@@ -3,3 +3,4 @@ bin/
 obj/
 .vs/Evernote Clone/v16/
 Evernote Clone.sln
+/packages.config

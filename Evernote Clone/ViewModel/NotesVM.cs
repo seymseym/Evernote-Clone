@@ -1,5 +1,4 @@
 ﻿using Evernote_Clone.Model;
-using Evernote_Clone.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +10,14 @@ namespace Evernote_Clone.ViewModel
 {
     public class NotesVM
     {
+        public ObservableCollection<Note> Notes { get; set; }
+
+
+        //Constructor
+        public NotesVM()
+        {
+
+        }
         public ObservableCollection<Notebook> Notebooks { get; set; }
         private Notebook selectedNotebook;
 
@@ -23,16 +30,6 @@ namespace Evernote_Clone.ViewModel
                 //TODO: get notes
             }
         }
-        public ObservableCollection<Note> Notes { get; set; }
 
-        public NewNotebookCommand NewNotebookCommand { get; set; }
-        public NewNoteCommand NewNoteCommand { get; set; }
-
-        //Constructor
-        public NotesVM()
-        {
-            NewNoteCommand = new NewNoteCommand(this);
-            NewNotebookCommand = new NewNotebookCommand(this);
-        }
     }
 }
