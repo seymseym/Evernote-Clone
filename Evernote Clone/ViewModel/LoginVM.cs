@@ -13,29 +13,25 @@ namespace Evernote_Clone.ViewModel
     public class LoginVM : ViewModelBase
     {
 
-        public string User
+        public string Us
         {
             get
             {
-                return GetProperty(() => User);
+                return GetProperty(() => Us);
             }
 
             set
             {
-                SetProperty(() => User, value);
+                SetProperty(() => Us, value);
             }
         }
 
         public ICommand LoginCommand { get; set; }
-        public ICommand NewNotebookCommand { get; set; }
-        public ICommand NewNoteCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
 
         public LoginVM()
         {
             LoginCommand = new DelegateCommand(Login);
-            NewNotebookCommand = new DelegateCommand(NewNoteook);
-            NewNoteCommand = new DelegateCommand(NewNote);
             RegisterCommand = new DelegateCommand(Register);
         }
 
